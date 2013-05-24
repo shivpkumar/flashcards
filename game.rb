@@ -12,23 +12,25 @@ class Game
 
   def start
     greeting
-    while deck.cards_left?
+    while @deck.cards_left?
       play_round
     end
     end_game
   end
 
   def play_round
-    @card = deck.get_card
+    @card = @deck.get_card
     show(@card)
-    until next_card?
+    next_card_flag = false
+    until next_card_flag
       user_input = get_user_response
-      next_card? = respond_to(user_input)
+      next_card_flag = respond_to(user_input)
     end
   end
 
   def respond_to(user_input)
     if user_input == "[next]"
+      give_answer
       return true
     elsif user_input == "[quit]"
       end_game
@@ -37,11 +39,16 @@ class Game
       return false
     elsif @card.guess_correct?(user_input)  
       announce_correct
+      @card.mark!
       return true
     else
       announce_incorrect
       return false
     end
+  end
+
+  def give_answer
+    puts "The answer was \"#{@card.answer}\", you damn dummyhead!"
   end
   
   def announce_correct

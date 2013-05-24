@@ -13,7 +13,7 @@ class FlashCard
     @answer == guess
   end
 
-  def mark_card!
+  def mark!
     @marked = true
   end
 
