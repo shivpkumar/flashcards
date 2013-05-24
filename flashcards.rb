@@ -1,9 +1,9 @@
 class FlashCard
 
-  attr_reader :question, :marked
+  attr_reader :description, :marked
 
   def initialize(args)
-    @question = args[:question]
+    @description = args[:description]
     @answer = args[:answer]
     @marked = args[:marked] || false
   end
