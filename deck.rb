@@ -23,4 +23,8 @@ class Deck
    @deck.shuffle!
    @deck.find { |card| card.marked? == false }
   end
+
+  def cards_left?
+    @deck.find { |card| card.marked? == false } ? true : false
+  end
 end
