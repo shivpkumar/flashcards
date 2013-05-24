@@ -13,10 +13,14 @@ class Deck
     flashcard_list = File.readlines(@file)
     until flashcard_list.length == 0
       flashcard = flashcard_list.shift(3)
-      description = flashcard[0].delete("\n")
-      answer = flashcard[1].delete("\n")
-      @deck << FlashCard.new({description: description, answer: answer})
+      create_card(flashcard)
     end
+  end
+
+  def create_card(arr)
+    description = arr[0].delete("\n")
+    answer = arr[1].delete("\n")
+    @deck << FlashCard.new({description: description, answer: answer})
   end
 
   def get_card
