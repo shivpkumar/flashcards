@@ -2,11 +2,14 @@
 
 class Game
 
+
+  def end_game
+  end
+
+
   deck = Deck.new
-
+  
   puts "Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Go!"
-
-  #new game query?
 
   while
     card = deck.get_card
