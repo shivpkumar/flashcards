@@ -1,4 +1,8 @@
+require_relative 'flashcards'
+
 class Deck
+  attr_reader :deck
+
   def initialize(file)
     @file = file
     @deck = []
@@ -11,7 +15,7 @@ class Deck
       flashcard = flashcard_list.shift(3)
       description = flashcard[0].delete("\n")
       answer = flashcard[1].delete("\n")
-      @deck << Flashcard.new({description: description, answer: answer})
+      @deck << FlashCard.new({description: description, answer: answer})
     end
   end
 
